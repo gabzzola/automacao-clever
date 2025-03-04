@@ -1,5 +1,7 @@
 import time
+import pandas as pd
 from pages.login import System
+from pages.warehouse.products.product import Product
 from utils.selenium_utils import init_driver
 
 def main():
@@ -13,6 +15,10 @@ def main():
     try:
         driver.get(url)
         system.login(user, password)
+
+        almoxarifado_produtos = pd.read_csv("almoxarifado_produtos.csv")
+        product = Product(driver, almoxarifado_produtos)
+        product.register_all_products()
 
         time.sleep(5)
 
