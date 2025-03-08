@@ -35,7 +35,11 @@ class Product(Warehouse):
             formatted_value = value.upper()
 
             element = wait_element_clickable(self.driver, By.CSS_SELECTOR, selector)
-            element.click()            
+            element.click()  
+
+            search = wait_element_clickable(self.driver, By.CSS_SELECTOR, "input.select2-input.select2-focused")
+            search.send_keys(formatted_value)
+            
             try:
                 option = wait_element_clickable(self.driver, By.XPATH, f"//div[text()='{formatted_value}']")
                 option.click()

@@ -27,12 +27,13 @@ def main():
         elif (user_action == "Cadastro de Grupo Delivery, Grupo de Itens e Insumos"):
             almoxarifado_cadastros = pd.read_csv("almoxarifado_cadastros.csv")
             registrations = Registrations(driver, almoxarifado_cadastros)
-            registrations.register()        
-        
-        time.sleep(5)
+            registrations.register()                        
 
     except Exception as e:
         print(f"Ocorreu um erro {e}")
+    finally:
+        time.sleep(5)
+        driver.quit()
 
 if __name__ == "__main__":
     main()
