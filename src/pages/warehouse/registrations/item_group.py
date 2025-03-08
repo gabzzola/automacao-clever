@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from pages.warehouse.registrations.registrations import Registrations
+from pages.warehouse.registrations.main import Registrations
 from utils.selenium_utils import wait_element_clickable
 
 class ItemGroup(Registrations):

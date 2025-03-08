@@ -1,8 +1,8 @@
 import time
 import pandas as pd
 from pages.login import System
-from pages.warehouse.products.product import Product
-from pages.warehouse.registrations.registrations import Registrations
+from pages.warehouse.products.main import Product
+from pages.warehouse.registrations.main import Registrations
 from user_action import get_user_action
 from utils.selenium_utils import init_driver
 

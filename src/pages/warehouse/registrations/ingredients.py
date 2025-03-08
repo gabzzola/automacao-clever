@@ -1,7 +1,7 @@
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from pages.warehouse.registrations.registrations import Registrations
+from pages.warehouse.registrations.main import Registrations
 from utils.format_price import format_price
 from utils.selenium_utils import wait_element_clickable
 from utils.element_utils import click_element_add, click_element_save_and_quit

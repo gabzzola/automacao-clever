@@ -1,6 +1,6 @@
 import pandas as pd
 from selenium.webdriver.common.by import By
-from pages.warehouse.products.product import Product
+from pages.warehouse.products.main import Product
 from utils.selenium_utils import wait_element_clickable
 from utils.format_price import format_price
 

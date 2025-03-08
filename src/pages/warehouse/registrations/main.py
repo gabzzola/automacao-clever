@@ -1,6 +1,6 @@
 import pandas as pd
 from selenium.webdriver.common.by import By
-from pages.warehouse.warehouse import Warehouse
+from pages.warehouse.main import Warehouse
 from utils.selenium_utils import wait_element_clickable
 from utils.element_utils import click_element_add, click_element_save_and_quit
 
