@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -25,6 +26,8 @@ class Ingredients(Registrations):
             if not pd.isna(ingredient): 
                 formatted_ingredient = ingredient.upper()
                 
+                time.sleep(2)
+
                 click_element_add(self.driver)
                 element_description = wait_element_clickable(self.driver, By.ID, "descricao")
                 element_description.send_keys(formatted_ingredient + Keys.TAB)

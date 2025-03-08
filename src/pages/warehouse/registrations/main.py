@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 from selenium.webdriver.common.by import By
 from pages.warehouse.main import Warehouse
@@ -35,6 +36,8 @@ class Registrations(Warehouse):
             if not pd.isna(item) and item not in registered:
                 formatted_item = item.upper()
                 
+                time.sleep(2)
+
                 click_element_add(self.driver)
                 element = wait_element_clickable(self.driver, By.ID, "descricao")
                 element.send_keys(formatted_item)
