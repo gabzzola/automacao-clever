@@ -7,7 +7,8 @@ def get_user_action():
             "message": "Selecione a ação que você deseja que o bot realize:",
             "choices": [
                 "Cadastro de produtos sem dados para comanda",
-                "Cadastro de Grupo Delivery, Grupo de Itens e Insumos"
+                "Cadastro de produtos com dados para comanda",
+                "Cadastro de produtos com dados para comanda, mas Grupo Delivery, Grupo de Itens e Insumos já estão cadastrados"
             ],
             "name": "action"
         }

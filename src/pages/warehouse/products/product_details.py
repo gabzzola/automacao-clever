@@ -48,4 +48,4 @@ class ProductDetails(Product):
             element.send_keys(price)
 
     def delivery_group(self, row):
-        self.fill_select(row.grupo_delivery, "#s2id_grupo_produto_id a.select2-choice.select2-default")
+        self.fill_select(row.grupo_delivery, By.CSS_SELECTOR, "#s2id_grupo_produto_id a.select2-choice.select2-default")

@@ -22,19 +22,23 @@ class Product(Warehouse):
 
     def register_product(self, row):
         from pages.warehouse.products.product_details import ProductDetails
+        from pages.warehouse.products.product_order_data import ProductOrderData
 
         click_element_add(self.driver)
 
         details = ProductDetails(self.driver, self.dataframe)
         details.register(row)
 
+        order_data = ProductOrderData(self.driver, self.dataframe)
+        order_data.register(row)
+
         click_element_save_and_quit(self.driver)
 
-    def fill_select(self, value, selector):
+    def fill_select(self, value, by_type, selector):
         if not pd.isna(value):
             formatted_value = value.upper()
 
-            element = wait_element_clickable(self.driver, By.CSS_SELECTOR, selector)
+            element = wait_element_clickable(self.driver, by_type, selector)
             element.click()  
 
             search = wait_element_clickable(self.driver, By.CSS_SELECTOR, "input.select2-input.select2-focused")

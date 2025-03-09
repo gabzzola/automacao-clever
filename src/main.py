@@ -1,16 +1,13 @@
 import time
-import pandas as pd
 from pages.login import System
-from pages.warehouse.products.main import Product
-from pages.warehouse.registrations.main import Registrations
 from user_action import get_user_action
+from execute_action import execute_action
 from utils.selenium_utils import init_driver
 
 def main():
     url = input("Digite a URL do sistema: ")
     user = input("Digite o nome de usuário para acessar o sistema: ")
     password = input("Digite a senha correspondente ao seu usuário: ")
-
     user_action = get_user_action()
 
     driver = init_driver()
@@ -20,17 +17,11 @@ def main():
         driver.get(url)
         system.login(user, password)
 
-        if (user_action == "Cadastro de produtos sem dados para comanda"):
-            almoxarifado_produtos = pd.read_csv("almoxarifado_produtos.csv")
-            product = Product(driver, almoxarifado_produtos)
-            product.register_all_products()
-        elif (user_action == "Cadastro de Grupo Delivery, Grupo de Itens e Insumos"):
-            almoxarifado_cadastros = pd.read_csv("almoxarifado_cadastros.csv")
-            registrations = Registrations(driver, almoxarifado_cadastros)
-            registrations.register()                        
+        execute_action(user_action, driver)
 
     except Exception as e:
         print(f"Ocorreu um erro {e}")
+
     finally:
         time.sleep(5)
         driver.quit()
